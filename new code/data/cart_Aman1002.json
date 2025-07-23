@@ -1,8 +1,82 @@
 [
   {
-    "product_id": "p001",
-    "name": "Men's Shoes Alpha",
-    "price": 1500,
-    "gender": "men"
+    "id": "8d2d7304-f83c-4592-9d60-4a037c197919",
+    "sellerId": null,
+    "title": "Samsung Galaxy S24 Ultra (12GB RAM, 256GB) - Titanium Gray",
+    "slug": "samsung-galaxy-s24-ultra-12gb-ram-256gb-titanium-gray",
+    "description": "Experience Power and Elegance with the Samsung Galaxy S24 Ultra\nBuilt for productivity and performance, the Galaxy S24 Ultra redefines premium smartphones. Featuring a crystal-clear 6.8\u201d AMOLED display and powered by the ultra-efficient Snapdragon 8 Gen 3 processor, this device ensures flawless multitasking and immersive visuals. Capture every detail with a 200MP quad-camera system, and stay connected all day with a massive 5000mAh battery. With Android 14 and One UI 6.1, expect a fluid and secure experience. Whether you're a gamer, a photographer, or a business user \u2014 this phone has it all.",
+    "shortDescription": "6.8\" QHD+ AMOLED Display, 120Hz\n\nQualcomm Snapdragon 8 Gen 3 Processor\n\n12GB RAM, 256GB Storage\n\n200MP Quad Camera | 12MP Front Camera\n\n5000 mAh Battery | 45W Fast Charging\n\nAndroid 14, One UI 6.1",
+    "subtitle": null,
+    "brandId": "63739463-1be2-48f8-9261-84bbb361710a",
+    "categoryId": "beed1075-9b91-40c4-a7ca-0213e5a47048",
+    "subCategoryId": null,
+    "price": "124999",
+    "discountPrice": "121999",
+    "currency": "INR",
+    "stockQuantity": 12,
+    "sku": "SAM-137176-TXC",
+    "barcode": "148597",
+    "weight": null,
+    "dimensions": null,
+    "isActive": true,
+    "isFeatured": true,
+    "isNew": false,
+    "isBestSeller": false,
+    "isSponsored": false,
+    "visibility": "PUBLIC",
+    "averageRating": 0,
+    "reviewCount": 0,
+    "bankOffer": null,
+    "exchangeOffer": null,
+    "metaTitle": null,
+    "metaDescription": null,
+    "metaKeywords": null,
+    "createdAt": "2025-07-21T10:59:20.287Z",
+    "updatedAt": "2025-07-21T11:02:16.307Z",
+    "brand": {
+      "id": "63739463-1be2-48f8-9261-84bbb361710a",
+      "name": "Samsung",
+      "slug": "samsung",
+      "logo": "https://example.com/samsung-logo.png",
+      "description": "Inspire the World, Create the Future",
+      "createdAt": "2025-07-09T09:37:36.667Z",
+      "updatedAt": "2025-07-09T09:37:36.667Z",
+      "isFeatured": true,
+      "website": "https://www.samsung.com"
+    },
+    "category": {
+      "id": "beed1075-9b91-40c4-a7ca-0213e5a47048",
+      "name": "Electronics",
+      "slug": "electronics",
+      "description": "",
+      "icon": "https://i.pinimg.com/736x/bb/07/8b/bb078b787f3e989738b543e033b6af66.jpg",
+      "parentId": null,
+      "createdAt": "2025-07-03T13:21:01.788Z",
+      "updatedAt": "2025-07-09T10:23:09.935Z"
+    },
+    "subCategory": null,
+    "images": [
+      {
+        "id": "8b66edd5-095e-42bd-9d8a-a13e31182371",
+        "productId": "8d2d7304-f83c-4592-9d60-4a037c197919",
+        "imageUrl": "https://my-ecommerce-uploads.s3.ap-south-1.amazonaws.com/products/2025/07/21/1753095520528-55423cc5-9e82-4884-89b1-9a6b9962e14a.jpg",
+        "altText": "download.jpg",
+        "position": 0,
+        "createdAt": "2025-07-21T11:02:16.377Z",
+        "updatedAt": "2025-07-21T11:02:16.377Z"
+      },
+      {
+        "id": "8e169b35-3e06-42e9-8118-f0d01d62e55f",
+        "productId": "8d2d7304-f83c-4592-9d60-4a037c197919",
+        "imageUrl": "https://my-ecommerce-uploads.s3.ap-south-1.amazonaws.com/products/2025/07/21/1753095543509-a03a0bc5-ce80-4e04-ab93-f5731d7ecf3f.jpg",
+        "altText": "download (1).jpg",
+        "position": 1,
+        "createdAt": "2025-07-21T11:02:16.377Z",
+        "updatedAt": "2025-07-21T11:02:16.377Z"
+      }
+    ],
+    "variants": [],
+    "tags": [],
+    "deals": []
   }
 ]
