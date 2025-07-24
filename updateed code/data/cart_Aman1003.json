@@ -1,0 +1,82 @@
+[
+  {
+    "id": "475067ea-d1f7-4f02-b173-44d2d3834fda",
+    "sellerId": null,
+    "title": "Bob Timberlake Plaid Shirt Dress for Ladies",
+    "slug": "bob-timberlake-plaid-shirt-dress-for-ladies",
+    "description": null,
+    "shortDescription": null,
+    "subtitle": null,
+    "brandId": "1283780e-38c5-4e48-ae29-541657899e72",
+    "categoryId": "c1455bf1-2af7-4984-af08-8a29c3c7b16c",
+    "subCategoryId": "3114c2fc-c5d1-45ff-866f-8e0c8b68c5d2",
+    "price": "2000",
+    "discountPrice": "1819.99",
+    "currency": "INR",
+    "stockQuantity": 10,
+    "sku": "BOB-146146-VXG",
+    "barcode": null,
+    "weight": null,
+    "dimensions": null,
+    "isActive": true,
+    "isFeatured": false,
+    "isNew": false,
+    "isBestSeller": false,
+    "isSponsored": false,
+    "visibility": "PUBLIC",
+    "averageRating": 4,
+    "reviewCount": 1,
+    "bankOffer": null,
+    "exchangeOffer": null,
+    "metaTitle": null,
+    "metaDescription": null,
+    "metaKeywords": null,
+    "createdAt": "2025-07-09T09:10:01.233Z",
+    "updatedAt": "2025-07-21T16:38:23.046Z",
+    "brand": {
+      "id": "1283780e-38c5-4e48-ae29-541657899e72",
+      "name": "CYNAYD",
+      "slug": "cynayd",
+      "logo": "https://cynayd.com/lovable-uploads/30977cb9-22c4-491c-83a3-564ddfbfb169.png",
+      "description": null,
+      "createdAt": "2025-07-03T12:52:19.887Z",
+      "updatedAt": "2025-07-03T12:52:19.887Z",
+      "isFeatured": false,
+      "website": "https://cynayd.com"
+    },
+    "category": {
+      "id": "c1455bf1-2af7-4984-af08-8a29c3c7b16c",
+      "name": "Fashion",
+      "slug": "fashion",
+      "description": null,
+      "icon": "https://i.pinimg.com/736x/5c/6c/e6/5c6ce698df5d40ab8aa4f523da92cc38.jpg",
+      "parentId": null,
+      "createdAt": "2025-07-03T13:32:24.297Z",
+      "updatedAt": "2025-07-03T13:32:24.297Z"
+    },
+    "subCategory": {
+      "id": "3114c2fc-c5d1-45ff-866f-8e0c8b68c5d2",
+      "name": "Women's",
+      "slug": "womens",
+      "description": null,
+      "icon": "https://i.pinimg.com/736x/75/9f/9f/759f9fac14fd0c3cf930bf2931405b56.jpg",
+      "parentId": "c1455bf1-2af7-4984-af08-8a29c3c7b16c",
+      "createdAt": "2025-07-03T13:38:42.354Z",
+      "updatedAt": "2025-07-03T13:38:42.354Z"
+    },
+    "images": [
+      {
+        "id": "010c6932-9cb3-4265-8a87-75c249f0bdfc",
+        "productId": "475067ea-d1f7-4f02-b173-44d2d3834fda",
+        "imageUrl": "https://my-ecommerce-uploads.s3.ap-south-1.amazonaws.com/products/2025/07/09/1752052184736-e9effab9-5eb8-4706-859c-63a02c8f7945.jpg",
+        "altText": "006343b3ce5b8d5e2e00afa375d633ec.jpg",
+        "position": 0,
+        "createdAt": "2025-07-09T10:14:53.350Z",
+        "updatedAt": "2025-07-09T10:14:53.350Z"
+      }
+    ],
+    "variants": [],
+    "tags": [],
+    "deals": []
+  }
+]
