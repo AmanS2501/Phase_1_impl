@@ -1,0 +1,21 @@
+{"user": "", "bot": "Welcome! How can I assist you today?"}
+{"user": "show me shoes under 2000", "bot": "Found 3 items. Top results:\n- Men's Shoes Alpha (₹1500)\n- Women's Shoes Alpha (₹1800)\n- Phone Case (₹500)"}
+{"user": "show me shoes for women", "bot": "Found 1 items. Top results:\n- Women's Shoes Alpha (₹1800)"}
+{"user": "add to cart", "bot": "Please specify your query."}
+{"user": "add", "bot": "Please specify your query."}
+{"user": "add cart", "bot": "Added Men's Shoes Beta to cart."}
+{"user": "show cart", "bot": "Your cart contains:\n- Men's Shoes Beta (₹2200)"}
+{"user": "", "bot": "Welcome! How can I assist you today?"}
+{"user": "support", "bot": "Connecting you to a live agent..."}
+{"user": "Hi", "bot": "Please specify your query."}
+{"user": "Take me to Men's Shoes Beta", "bot": "Found 2 items. Top results:\n- Men's Shoes Alpha (₹1500)\n- Men's Shoes Beta (₹2200)"}
+{"user": "support", "bot": "Connecting you to a live agent..."}
+{"user": "", "bot": "Welcome! How can I assist you today?"}
+{"user": "hi", "bot": "Please specify your query."}
+{"user": "refunf", "bot": "Please specify your query."}
+{"user": "refund", "bot": "Refunds are processed within 3-5 business days."}
+{"user": "what abot refund?", "bot": "Refunds are processed within 3-5 business days."}
+{"user": "category", "bot": "Here's the link to shoes: https://mockstore.com/categories/shoes"}
+{"user": "show me shoes under 2000", "bot": "Found 3 items. Top results:\n- Men's Shoes Alpha (₹1500)\n- Women's Shoes Alpha (₹1800)\n- Phone Case (₹500)"}
+{"user": "show me mens shoes under 2000", "bot": "Found 1 items. Top results:\n- Men's Shoes Alpha (₹1500)"}
+{"user": "show me phone case", "bot": "Please specify your query."}

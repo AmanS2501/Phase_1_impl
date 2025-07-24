@@ -1,0 +1,4 @@
+{"user": "", "bot": "Welcome! How can I assist you today?"}
+{"user": "Hi", "bot": "Please specify your query."}
+{"user": "show me my cart", "bot": "Please specify add/remove and a product ID."}
+{"user": "p003", "bot": "Please specify your query."}
