@@ -1,7 +1,6 @@
 import json
 import requests
 from inputimeout import inputimeout, TimeoutOccurred
-
 from core.groq_llm import GroqLLM
 from prompt.system_prompt import SYSTEM_PROMPT
 from utils.helpers import extract_filters
