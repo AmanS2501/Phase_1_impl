@@ -1,13 +1,15 @@
-from utils.helpers import load_cart, print_products
+from fastmcp import MCPClient
 
 class ShowCartHandler:
-    def __init__(self, user_id):
+    def __init__(self, mcp_client, user_id):
+        self.mcp_client = mcp_client
         self.user_id = user_id
 
     def handle(self):
-        cart = load_cart(self.user_id)
+        cart = self.mcp_client.call_tool("show_cart", {"user_id": self.user_id})
         if not cart:
             print("Your cart is empty.")
         else:
             print("Your cart:")
-            print_products(cart)
+            for item in cart:
+                print(f"{item.get('id', 'N/A')}: {item.get('title', 'Unknown')} (₹{item.get('price','N/A')})")

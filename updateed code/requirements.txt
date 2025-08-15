@@ -1,6 +1,7 @@
+fastmcp
+pydantic
+requests
 langchain
 langchain-groq
 python-dotenv
 inputimeout
-json
-requests

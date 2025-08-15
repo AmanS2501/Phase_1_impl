@@ -1,14 +1,13 @@
-from utils.helpers import load_cart, save_cart
+from fastmcp import MCPClient
 
 class RemoveFromCartHandler:
-    def __init__(self, user_id):
+    def __init__(self, mcp_client, user_id):
+        self.mcp_client = mcp_client
         self.user_id = user_id
 
     def handle(self, product_id):
-        cart = load_cart(self.user_id)
-        new_cart = [item for item in cart if item.get('id') != product_id]
-        save_cart(self.user_id, new_cart)
-        if len(cart) == len(new_cart):
-            print("Product not in cart.")
-        else:
-            print(f"Removed product {product_id} from cart.")
+        result = self.mcp_client.call_tool("remove_from_cart", {
+            "user_id": self.user_id,
+            "product_id": product_id
+        })
+        print(result)

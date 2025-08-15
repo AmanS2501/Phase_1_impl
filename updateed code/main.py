@@ -1,46 +1,14 @@
 import json
-import requests
-from inputimeout import inputimeout, TimeoutOccurred
+from mcp.server.fastmcp import FastMCP
+
+# from fastmcp import MCPClient
 from core.groq_llm import GroqLLM
 from prompt.system_prompt import SYSTEM_PROMPT
 from utils.helpers import extract_filters
-from handlers.show_cart_handler import ShowCartHandler
-from handlers.add_to_cart_handler import AddToCartHandler
-from handlers.remove_from_cart_handler import RemoveFromCartHandler
-from handlers.search_products_handler import SearchProductsHandler
-from handlers.faq_handler import FAQHandler
 
-ALLMART_API_URL = "https://api.allmart.fashion/api/v1/products"
-TIMEOUT_SECONDS = 120
-
-def fetch_products(filters, page=1, limit=12):
-    params = {
-        "page": page,
-        "limit": limit,
-        "sortBy": "averageRating",
-        "sortOrder": "desc",
-        "inStock": "true"
-    }
-    category = filters.get("category")
-    if category and category.lower() != "all":
-        params["categorySlug"] = category
-    if "min_price" in filters:
-        params["minPrice"] = filters["min_price"]
-    if "max_price" in filters:
-        params["maxPrice"] = filters["max_price"]
-    try:
-        resp = requests.get(ALLMART_API_URL, params=params, timeout=10)
-        data = resp.json()
-    except Exception as e:
-        print("Product API error:", e)
-        return []
-    products = (
-        data.get("data", {}).get("data") or 
-        data.get("data", []) or 
-        data.get("products", []) or []
-    )
-    products = [p for p in products if isinstance(p, dict)]
-    return products
+# MCP server configuration — update host/port if needed.
+MCP_SERVER_HOST = "localhost"
+MCP_SERVER_PORT = 23232  # Or whatever your fastMCP server is running on
 
 def get_user_id():
     user_id = input("Enter your user_id: ").strip()
@@ -50,29 +18,20 @@ def get_user_id():
     return user_id
 
 def main():
-    # user_id = input("Enter your user_id: ").strip()
+    client = FastMCP(MCP_SERVER_HOST, port=MCP_SERVER_PORT)  # Connect once
     llm = GroqLLM()
-    messages = [
-        {"role": "system", "content": SYSTEM_PROMPT}
-    ]
-    # show_cart_handler = ShowCartHandler(user_id)
-    # add_to_cart_handler = AddToCartHandler(user_id, fetch_products)
-    # remove_from_cart_handler = RemoveFromCartHandler(user_id)
-    # search_products_handler = SearchProductsHandler(fetch_products)
-    # faq_handler = FAQHandler()
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
 
     print(
-        "Welcome! Try typing: 'show my cart', 'add <product_id> to cart', "
+        "Welcome! Try: 'show my cart', 'add <product_id> to cart', "
         "'remove <product_id> from cart', 'show electronics under 40000', 'What is your return policy?'.\n"
         "Type 'exit' to quit."
     )
+    user_id = get_user_id()
+
     while True:
-        try:
-            user_input = inputimeout(prompt="You: ", timeout=TIMEOUT_SECONDS)
-        except TimeoutOccurred:
-            print("\nSession timed out due to inactivity. Exiting.")
-            break
-        if user_input.strip().lower() == "exit":
+        user_input = input("You: ").strip()
+        if user_input.lower() == "exit":
             print("Goodbye!")
             break
 
@@ -86,30 +45,55 @@ def main():
             continue
 
         action = res.get("action")
-        # Dispatch to the right handler
+
         if action == "show_cart":
-            show_cart_handler = ShowCartHandler(get_user_id())
-            show_cart_handler.handle()
+            result = client.call_tool("show_cart", {"user_id": user_id})
+            if not result:
+                print("Your cart is empty.")
+            else:
+                print("Your cart:")
+                for item in result:
+                    print(f"{item.get('id','N/A')}: {item.get('title','Unknown')} (₹{item.get('price','N/A')})")
 
         elif action == "add_to_cart":
-            add_to_cart_handler = AddToCartHandler(get_user_id(), fetch_products)
             product_id = res.get("product_id") or res.get("id")
-            add_to_cart_handler.handle(product_id)
+            # Product API via MCP tool
+            products = client.call_tool("search_products", {
+                "filters": {"category": "all"}, "page": 1, "limit": 50
+            })
+            product = next((p for p in products if p.get("id") == product_id), None)
+            if not product:
+                print("Invalid product_id.")
+            else:
+                result = client.call_tool("add_to_cart", {
+                    "user_id": user_id,
+                    "product": product
+                })
+                print(result)
 
         elif action == "remove_from_cart":
-            remove_from_cart_handler = RemoveFromCartHandler(get_user_id())
             product_id = res.get("product_id") or res.get("id")
-            remove_from_cart_handler.handle(product_id)
+            result = client.call_tool("remove_from_cart", {
+                "user_id": user_id,
+                "product_id": product_id
+            })
+            print(result)
 
         elif action == "search_products":
-            search_products_handler = SearchProductsHandler(fetch_products)
             filters = extract_filters(res)
-            search_products_handler.handle(filters)
+            products = client.call_tool("search_products", {
+                "filters": filters,
+                "page": 1,
+                "limit": 12
+            })
+            print("Products matching filters:")
+            for p in products:
+                print(f"{p.get('id','N/A')}: {p.get('title','Unknown')} (₹{p.get('price','N/A')})")
 
         elif action == "faq":
-            faq_handler = FAQHandler()
-            query = res.get("query")
-            faq_handler.handle(query if query else "")
+            query = res.get("query", "")
+            answer = client.call_tool("faq", {"query": query})
+            print(answer)
 
         elif action == "reply":
             print(f"Bot: {res.get('message','')}")

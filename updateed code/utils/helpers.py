@@ -22,13 +22,16 @@ def print_products(products):
         print("(No products found.)")
         return
     for p in products:
+        # Fix: Only print dicts, skip strings/invalid items!
         if not isinstance(p, dict):
+            print(f"(Invalid product: {repr(p)})")
             continue
         prod_id = p.get('id', 'N/A')
         name = p.get("title", "Unknown")
         price = p.get("price", "N/A")
         brand = p.get("brand", "")
         print(f"{prod_id}: {name} (₹{price})", f"[{brand}]" if brand else "")
+
 
 def extract_filters(llm_response):
     filters = llm_response.get("filters", {}).copy()
